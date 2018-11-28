@@ -64,3 +64,25 @@ $ ./gradlew bootRun
    [gradle]: <https://gradle.org/>
    [sdkman]: <http://sdkman.io/>
    
+   
+   
+   ### Levantar Jenkins
+   
+   1) instalar jenkis dockerizado
+
+docker run \
+  -u root \
+  --name jenkis \
+  -d \
+  -p 8080:8080 \
+  -p 50000:50000 \
+  -v jenkins:/var/jenkins_home \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  jenkinsci/blueocean
+//para entender el -v /var/run/docker.sock:/var/run/docker.sock
+//leer https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
+
+2) buscar el passsword para continuar la instalacion
+
+2.1 entrar al container
+docker exec -it jenkis-prueba cat /var/jenkins_home/secrets/initialAdminPassword
