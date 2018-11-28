@@ -72,9 +72,9 @@ $ ./gradlew bootRun
 
 docker run \
   -u root \
-  --name jenkis \
+  --name jenkins \
   -d \
-  -p 8080:8080 \
+  -p 8081:8081 \
   -p 50000:50000 \
   -v jenkins:/var/jenkins_home \
   -v /var/run/docker.sock:/var/run/docker.sock \
@@ -85,4 +85,4 @@ docker run \
 2) buscar el passsword para continuar la instalacion
 
 2.1 entrar al container
-docker exec -it jenkis-prueba cat /var/jenkins_home/secrets/initialAdminPassword
+docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
